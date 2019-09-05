@@ -1,6 +1,7 @@
 <template>
   <div>
       <AppButton :to="{ name: 'signin' }"/>
+      <AppButton :to="{ name: 'signin' }" theme="danger" size="large" />
   </div>
 </template>
 
