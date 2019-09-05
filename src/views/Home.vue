@@ -2,6 +2,7 @@
   <div>
       <AppButton :to="{ name: 'signin' }"/>
       <AppButton :to="{ name: 'signin' }" theme="danger" size="large" />
+      <AppButton @click.prevent="clicked"/>
   </div>
 </template>
 
@@ -12,6 +13,12 @@ export default {
   name: 'home',
   components: {
       AppButton
+  },
+
+  methods: {
+      clicked () {
+          console.log('clicked');
+      }
   }
 }
 </script>
