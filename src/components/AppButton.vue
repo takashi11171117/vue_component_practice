@@ -3,8 +3,11 @@
         class="btn"
         @click.native="clicked"
         :to="to"
+        :disabled="disabled"
         :class="[
-            themes[theme], sizes[size]
+            themes[theme], sizes[size], {
+                'disabled': disabled 
+            }
         ]"
     >
         Sign in
@@ -26,6 +29,11 @@ export default {
         }
     },
     props: {
+        disabled: {
+            required: false,
+            type: Boolean,
+            default: false
+        },
         theme: {
             required: false,
             type: String,
@@ -48,6 +56,10 @@ export default {
     },
     methods: {
         clicked (e) {
+            if (this.disabled) {
+                return;
+            }
+
             this.$emit('click', e);
         }
     }

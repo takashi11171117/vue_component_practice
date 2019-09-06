@@ -2,7 +2,7 @@
   <div>
       <AppButton :to="{ name: 'signin' }"/>
       <AppButton :to="{ name: 'signin' }" theme="danger" size="large" />
-      <AppButton @click.prevent="clicked"/>
+      <AppButton @click.prevent="clicked" disabled/>
   </div>
 </template>
 
