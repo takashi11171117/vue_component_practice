@@ -1,8 +1,13 @@
 <template>
   <div>
-      <AppButton :to="{ name: 'signin' }"/>
-      <AppButton :to="{ name: 'signin' }" theme="danger" size="large" />
-      <AppButton @click.prevent="clicked" disabled/>
+      <AppButton :to="{ name: 'signin' }">
+          <p>bbbbbb</p>
+          <p>ereer</p>
+      </AppButton>
+      <AppButton :to="{ name: 'signin' }" theme="danger" size="large">
+          <strong>iiiiiiiii</strong>
+      </AppButton>
+      <AppButton @click.prevent="clicked" disabled text="eeeee" />
   </div>
 </template>
 

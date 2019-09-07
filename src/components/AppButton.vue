@@ -10,7 +10,9 @@
             }
         ]"
     >
-        Sign in
+        <slot>
+            {{ text }}
+        </slot>
     </router-link>
 </template>
 
@@ -29,6 +31,10 @@ export default {
         }
     },
     props: {
+        text: {
+            required: false,
+            type: String,
+        },
         disabled: {
             required: false,
             type: Boolean,
