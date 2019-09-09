@@ -8,16 +8,20 @@
           <strong>iiiiiiiii</strong>
       </AppButton>
       <AppButton @click.prevent="clicked" disabled text="eeeee"/>
+      <AppInput name="email" />
+      <AppInput name="password" type="password"/>
   </div>
 </template>
 
 <script>
 import AppButton from '@/components/AppButton';
+import AppInput from '@/components/AppInput';
 
 export default {
   name: 'home',
   components: {
-      AppButton
+      AppButton,
+      AppInput
   },
 
   methods: {
