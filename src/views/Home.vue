@@ -4,10 +4,10 @@
           <p>bbbbbb</p>
           <p>ereer</p>
       </AppButton>
-      <AppButton :to="{ name: 'signin' }" theme="danger" size="large">
+      <AppButton :to="{ name: 'signin' }" theme="danger" size="large" title="Sign up with an account">
           <strong>iiiiiiiii</strong>
       </AppButton>
-      <AppButton @click.prevent="clicked" disabled text="eeeee" />
+      <AppButton @click.prevent="clicked" disabled text="eeeee"/>
   </div>
 </template>
 

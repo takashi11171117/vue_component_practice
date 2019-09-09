@@ -3,6 +3,7 @@
         class="btn"
         @click.native="clicked"
         :to="to"
+        :title="formattedTitle"
         :disabled="disabled"
         :class="[
             themes[theme], sizes[size], {
@@ -30,10 +31,25 @@ export default {
             }
         }
     },
+    computed: {
+        formattedTitle () {
+            if (this.title !== '' ) {
+                return `?: ${this.title}`
+            } else {
+                return '';
+            }
+        }
+    },
     props: {
+        title: {
+            required: false,
+            type: String,
+            default: ''
+        },
         text: {
             required: false,
             type: String,
+            default: ''
         },
         disabled: {
             required: false,
