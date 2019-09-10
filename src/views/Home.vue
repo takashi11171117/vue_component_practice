@@ -8,20 +8,42 @@
           <strong>iiiiiiiii</strong>
       </AppButton>
       <AppButton @click.prevent="clicked" disabled text="eeeee"/>
-      <AppInput name="email" />
-      <AppInput name="password" type="password"/>
+      {{ form }}
+      <div>
+        <AppLabel forInput="email">
+          Enter your email address
+          <AppInput name="email" v-model="form.email" placeholder="ex.example.com" />
+        </AppLabel>
+      </div>
+      <AppInput name="password" type="password" v-model="form.password"/>
+      <Textarea name="bio" v-model="form.bio"/>
   </div>
 </template>
 
 <script>
 import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
+import AppLabel from '@/components/AppLabel';
+import Textarea from '@/components/Textarea';
 
 export default {
   name: 'home',
+
+  data () {
+    return {
+      form: {
+        email: '',
+        password: '',
+        bio: '',
+      }
+    }
+  },
+
   components: {
       AppButton,
-      AppInput
+      AppInput,
+      AppLabel,
+      Textarea
   },
 
   methods: {

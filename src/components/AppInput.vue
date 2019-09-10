@@ -1,10 +1,12 @@
 <template>
     <div>
         <input
+            v-bind="$attrs"
             :type="inputType"
             :name="name"
-            id="email"
+            :id="name"
             class="form-control"
+            @input="$emit('input', $event.target.value)"
         >
         <a href="#" v-if="type === 'password'" @click.prevent="passwordRevealed = !passwordRevealed">
             {{ passwordRevealed ? 'Hide' : 'Reveal' }} password
@@ -20,6 +22,11 @@ export default {
         }
     },
     props: {
+        value: {
+            required: false,
+            type: String,
+            default: "",
+        },
         name: {
             required: true,
             type: String
@@ -33,7 +40,7 @@ export default {
 
     computed: {
         inputType() {
-            return this.passwordRevealed ? 'text' : 'password';
+            return this.passwordRevealed || this.type !== 'password' ? 'text' : 'password';
         }
     },
 
@@ -41,6 +48,10 @@ export default {
         toggleVisibility () {
             this.inputType = this.inputType === 'password' ? 'text' : 'password';
         }
+    },
+
+    mounted() {
+        console.log(this.$attrs)
     }
 }
 </script>
