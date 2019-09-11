@@ -5,6 +5,7 @@
             :name="name"
             :id="name"
             class="form-control"
+            :rows="rows"
             @input="$emit('input', $event.target.value)"
         >
         </textarea>
@@ -13,6 +14,11 @@
 
 <script>
 export default {
+    computed: {
+        rows () {
+            return Math.max(5, this.value.split("\n").length);
+        }
+    }
     props: {
         value: {
             required: false,
