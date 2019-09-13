@@ -18,7 +18,7 @@ export default {
         rows () {
             return Math.max(5, this.value.split("\n").length);
         }
-    }
+    },
     props: {
         value: {
             required: false,

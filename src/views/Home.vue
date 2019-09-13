@@ -17,6 +17,8 @@
       </div>
       <AppInput name="password" type="password" v-model="form.password"/>
       <Textarea name="bio" v-model="form.bio"/>
+      <AppSigninModal />
+      <a href="">Open Modal</a>
   </div>
 </template>
 
@@ -25,6 +27,7 @@ import AppButton from '@/components/AppButton';
 import AppInput from '@/components/AppInput';
 import AppLabel from '@/components/AppLabel';
 import Textarea from '@/components/Textarea';
+import AppSigninModal from '@/components/modals/AppSigninModal';
 
 export default {
   name: 'home',
@@ -43,7 +46,8 @@ export default {
       AppButton,
       AppInput,
       AppLabel,
-      Textarea
+      Textarea,
+      AppSigninModal
   },
 
   methods: {
