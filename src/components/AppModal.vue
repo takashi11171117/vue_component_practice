@@ -1,6 +1,7 @@
 <template>
     <div class="app-modal" v-if="visible">
         <div class="app-modal-inner">
+            {{ name }}
             <slot />
         </div>
     </div>
@@ -12,6 +13,19 @@ export default {
         return {
             visible: false
         }
+    },
+    props: {
+        name: {
+            required: true,
+            type: String
+        }
+    },
+    mounted () {
+        this.$modal.$event.$on('show', (modal) => {
+            if (this.name === modal) {
+                this.visible = true;
+            }
+        })
     }
 }
 </script>

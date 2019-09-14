@@ -1,5 +1,5 @@
-<template>
-    <AppModal>
+<template> 
+    <AppModal name="signin">
         Sign in
     </AppModal>
 </template>

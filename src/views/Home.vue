@@ -18,7 +18,7 @@
       <AppInput name="password" type="password" v-model="form.password"/>
       <Textarea name="bio" v-model="form.bio"/>
       <AppSigninModal />
-      <a href="">Open Modal</a>
+      <a href="#" @click.prevent="$modal.show('signin')">Open Modal</a>
   </div>
 </template>
 
