@@ -1,7 +1,9 @@
 <template>
-    <div class="app-modal" v-if="visible">
+    <div v-if="visible">
+        <div class="app-modal" @click.prevent="visible = false"></div>
         <div class="app-modal-inner">
             {{ name }}
+            <a href="#" @click.prevent="visible = false">Close</a>
             <slot />
         </div>
     </div>
@@ -50,5 +52,6 @@ export default {
         padding: 30px;
         width: 90%;
         min-width: 500px;
+        z-index: 9999;
     }
 </style>
