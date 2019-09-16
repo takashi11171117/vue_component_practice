@@ -18,7 +18,7 @@
       <AppInput name="password" type="password" v-model="form.password"/>
       <Textarea name="bio" v-model="form.bio"/>
       <AppSigninModal />
-      <a href="#" @click.prevent="$modal.show('signin')">Open Modal</a>
+      <a href="#" @click.prevent="openModal">Open Modal</a>
   </div>
 </template>
 
@@ -53,6 +53,9 @@ export default {
   methods: {
       clicked () {
           console.log('clicked');
+      },
+      openModal () {
+          this.$modal.show('signin', {name: 'Alex'})
       }
   }
 }
