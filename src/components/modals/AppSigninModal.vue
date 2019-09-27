@@ -1,7 +1,9 @@
 <template> 
     <AppModal name="signin">
-        <template slot-scope="{ params }">
-            Sign in {{ params.name }}
+        <template slot-scope="">
+            <p>Sign in</p>
+
+            <a href="#" @click.prevent="signIn">Submit</a>
         </template>
     </AppModal>
 </template>
@@ -13,5 +15,10 @@ export default {
   components: {
       AppModal
   },
+  methods: {
+      signIn () {
+          this.$modal.hide('signin');
+      }
+  }
 }
 </script>

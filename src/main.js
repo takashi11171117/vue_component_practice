@@ -12,6 +12,9 @@ const Modal = {
       show (modal, params = {}) {
         Modal.event.$emit('show', modal, params);
       },
+      hide (modal) {
+        Modal.event.$emit('hide', modal);
+      },
       $event: this.event
     }
   }

@@ -1,12 +1,14 @@
 <template>
-    <div v-if="visible">
-        <div class="app-modal" @click.prevent="visible = false"></div>
-        <div class="app-modal-inner">
-            {{ name }}
-            <a href="#" @click.prevent="visible = false">Close</a>
-            <slot :params="params"/>
+    <transition name="modal">
+        <div v-if="visible">
+            <div class="app-modal" @click.prevent="$modal.hide(name)"></div>
+            <div class="app-modal-inner">
+                {{ name }}
+                <a href="#" @click.prevent="$modal.hide(name)">Close</a>
+                <slot :params="params"/>
+            </div>
         </div>
-    </div>
+    </transition>
 </template>
 
 <script>
@@ -23,11 +25,24 @@ export default {
             type: String
         }
     },
-    mounted () {
+    beforeMount () {
         this.$modal.$event.$on('show', (modal, params) => {
             if (this.name === modal) {
                 this.params = params;
                 this.visible = true;
+            }
+        })
+
+        this.$modal.$event.$on('hide', (modal) => {
+            if (this.name === modal) {
+                this.visible = false;
+            }
+        })
+    },
+    mounted () {
+        document.addEventListener('keydown', (e) => {
+            if (this.visible && e.keyCode === 27) {
+                this.visible = false;
             }
         })
     }
@@ -55,5 +70,13 @@ export default {
         width: 90%;
         min-width: 500px;
         z-index: 9999;
+    }
+
+    .modal-enter-active, .modal-leave-active {
+        transition: all 200ms;
+    }
+
+    .modal-enter, .modal-leave-active {
+        opacity: 0;
     }
 </style>

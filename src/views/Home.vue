@@ -56,6 +56,10 @@ export default {
       },
       openModal () {
           this.$modal.show('signin', {name: 'Alex'})
+
+        //   setTimeout(() => {
+        //       this.$modal.hide('signin');
+        //   }, 2000);
       }
   }
 }
