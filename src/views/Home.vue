@@ -1,5 +1,8 @@
 <template>
   <div>
+      <AppButton :to="{ name: 'chat' }">
+          <p>チャット</p>
+      </AppButton>
       <AppButton :to="{ name: 'signin' }">
           <p>bbbbbb</p>
           <p>ereer</p>
