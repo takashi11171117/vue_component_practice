@@ -22,6 +22,7 @@
       <Textarea name="bio" v-model="form.bio"/>
       <AppSigninModal />
       <a href="#" @click.prevent="openModal">Open Modal</a>
+      <AppTabs />
   </div>
 </template>
 
@@ -31,6 +32,7 @@ import AppInput from '@/components/AppInput';
 import AppLabel from '@/components/AppLabel';
 import Textarea from '@/components/Textarea';
 import AppSigninModal from '@/components/modals/AppSigninModal';
+import AppTabs from '@/components/tabs/AppTabs';
 
 export default {
   name: 'home',
@@ -50,7 +52,8 @@ export default {
       AppInput,
       AppLabel,
       Textarea,
-      AppSigninModal
+      AppSigninModal,
+      AppTabs
   },
 
   methods: {
