@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import SignIn from './views/SignIn.vue'
 import Chat from './views/Chat.vue'
+import Composition from './views/Composition.vue'
 
 Vue.use(Router)
 
@@ -25,5 +26,10 @@ export default new Router({
       name: 'chat',
       component: Chat
     },
+    {
+      path: '/composition',
+      name: 'composition',
+      component: Composition
+    }
   ]
 })

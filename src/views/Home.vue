@@ -3,6 +3,9 @@
       <AppButton :to="{ name: 'chat' }">
           <p>チャット</p>
       </AppButton>
+      <AppButton :to="{ name: 'composition' }">
+          <p>Composition</p>
+      </AppButton>
       <AppButton :to="{ name: 'signin' }">
           <p>bbbbbb</p>
           <p>ereer</p>
