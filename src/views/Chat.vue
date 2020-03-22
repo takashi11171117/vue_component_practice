@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import io from 'socket.io-client'
-const socket = io('127.0.0.1:3000')
+// import io from 'socket.io-client'
+// const socket = io('127.0.0.1:3000')
 
 export default {
   name: 'chat',
@@ -25,19 +25,19 @@ export default {
   },
   methods: {
       send: function (e) {
-          if (e.keyCode !== 13) {
-              return
-          }
+        //   if (e.keyCode !== 13) {
+        //       return
+        //   }
 
-          socket.emit('message.sent', this.message)
+        //   socket.emit('message.sent', this.message)
 
-          this.message = ''
+        //   this.message = ''
       }
   },
   mounted: function () {
-      socket.on('message', (message) => {
-          this.messages.push(message)
-      })
+    //   socket.on('message', (message) => {
+    //       this.messages.push(message)
+    //   })
   }
 }
 </script>
