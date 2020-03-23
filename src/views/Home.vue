@@ -7,8 +7,7 @@
           <p>Composition</p>
       </AppButton>
       <AppButton :to="{ name: 'signin' }">
-          <p>bbbbbb</p>
-          <p>ereer</p>
+          <p>Sign in</p>
       </AppButton>
       <AppButton :to="{ name: 'signin' }" theme="danger" size="large" title="Sign up with an account">
           <strong>iiiiiiiii</strong>

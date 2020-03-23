@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import SignIn from './views/SignIn.vue'
+import SignIn from './views/auth/SignIn.vue'
+import Account from './views/account/Index.vue'
 import Chat from './views/Chat.vue'
 import Composition from './views/Composition.vue'
 
@@ -20,6 +21,11 @@ export default new Router({
       path: '/signin',
       name: 'signin',
       component: SignIn
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Account
     },
     {
       path: '/chat',

@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
 import axios from 'axios'
 
+console.log(process.env)
 axios.defaults.withCredentials = true
+axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
 Vue.config.productionTip = false
 
@@ -25,7 +28,11 @@ const Modal = {
 
 Vue.use(Modal);
 
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app')
+
+store.dispatch('auth/me').then(() => {
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app')
+})
