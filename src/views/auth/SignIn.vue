@@ -22,12 +22,19 @@
                 Sign In
             </button>
         </div>
+        <div>
+            <button type="submit" class="w-full bg-yellow-500 text-white px-6 py-3 mt-10 rounded uppercase font-bold"  @click.prevent="handleTwitterLogin">
+                Twitter Login
+            </button>
+        </div>
     </form>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import { mapActions } from 'vuex'
+import firebase from '@/helpers/firebase.js'
 
 export default {
     data() {
@@ -38,7 +45,19 @@ export default {
             }
         }
     },
-
+    async mounted() {
+        try {
+            const { user } = await firebase.auth().getRedirectResult()
+            if (user) {
+                const idToken = await user.getIdToken(true)
+                const { data } = await axios.post('/api/auth', { idToken })
+                console.log(data);
+                // axios.setToken(data.token, 'Bearer')
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    },
     methods: {
       ...mapActions({
         signIn: 'auth/signIn'
@@ -48,7 +67,11 @@ export default {
         await this.signIn(this.form)
 
         this.$router.replace({ name: 'home' }).catch(() => {})
-      }
+      } ,
+      handleTwitterLogin() {
+        const provider = new firebase.auth.TwitterAuthProvider()
+        firebase.auth().signInWithRedirect(provider)
+      },
     }
 }
 </script>

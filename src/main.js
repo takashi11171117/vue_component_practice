@@ -4,7 +4,6 @@ import router from './router'
 import store from './store'
 import axios from 'axios'
 
-console.log(process.env)
 axios.defaults.withCredentials = true
 axios.defaults.baseURL = process.env.VUE_APP_API_URL
 
